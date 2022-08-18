@@ -5,6 +5,27 @@
 <mapper namespace="com.atlff.mybatis.mapper.UserMapper">
     <!--int insertUser();-->
     <insert id="insertUser">
-        insert into t_user values(null,'admin','123456',23,'男','123456@qq.com');
+        insert into t_user values(null,'admin','123456',243,'男','123456@qq.com');
     </insert>
+    <!--int updateUser();-->
+    <update id="updateUser">
+        update t_user set username = '张三' where id = 4;
+    </update>
+    <!--int deleteUser();-->
+    <delete id="deleteUser">
+        delete from t_user where id = 5;
+    </delete>
+    <!--
+    查询功能的标签必须设置resultType或者resultMap
+    resultType：设置默认映射关系
+    resultMap：设置自定义映射关系
+    -->
+    <!--User getUserById();-->
+    <select id="getUserById" resultType="com.atlff.mybatis.pojo.User">
+        select * from t_user where id = 6;
+    </select>
+    <!--List<User> getAllUser();-->
+    <select id="getAllUser" resultType="com.atlff.mybatis.pojo.User">
+        select * from t_user;
+    </select>
 </mapper>
